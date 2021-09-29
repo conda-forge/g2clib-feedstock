@@ -9,7 +9,7 @@ source:
   sha256: 83e4f2061b3d4a8bd431ba860dda8c5cf103b25f42d265b7b724b9acafad177c
 
 build:
-  number: 0
+  number: 1
   skip: True  # [win]
 
 requirements:
@@ -28,8 +28,6 @@ requirements:
 test:
   commands:
     - test -f ${PREFIX}/lib/libgrib2c.a  # [unix]
-    - conda inspect linkages -p $PREFIX $PKG_NAME  # [not win]
-    - conda inspect objects -p $PREFIX $PKG_NAME  # [osx]
 
 about:
   home: http://www.nco.ncep.noaa.gov/pmb/codes/GRIB2/
