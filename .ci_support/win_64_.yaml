@@ -1,20 +1,14 @@
 c_compiler:
-- gcc
-c_compiler_version:
-- '11'
-cdt_name:
-- cos6
+- vs2019
 channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
-docker_image:
-- quay.io/condaforge/linux-anvil-cos7-x86_64
 jasper:
 - '2'
 libpng:
 - '1.6'
 target_platform:
-- linux-64
+- win-64
 zlib:
 - '1.2'

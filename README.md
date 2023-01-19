@@ -3,11 +3,11 @@ About g2clib
 
 Home: https://github.com/NOAA-EMC/NCEPLIBS-g2c
 
-Package license: [LGPL-3.0](https://github.com/NOAA-EMC/NCEPLIBS-g2c/blob/develop/LICENSE.md)
+Package license: LGPL-3.0
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/g2clib-feedstock/blob/main/LICENSE.txt)
 
-Summary: C decoder/encoder routines for GRIB edition 2.
+Summary: This library contains C decoder/encoder routines for GRIB edition 2.
 
 Current build status
 ====================
@@ -66,6 +66,13 @@ Current build status
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=3901&branchName=main">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/g2clib-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_" alt="variant">
+                </a>
+              </td>
+            </tr><tr>
+              <td>win_64</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=3901&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/g2clib-feedstock?branchName=main&jobName=win&configuration=win%20win_64_" alt="variant">
                 </a>
               </td>
             </tr>
@@ -197,7 +204,5 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
-* [@jhamman](https://github.com/jhamman/)
-* [@ocefpaf](https://github.com/ocefpaf/)
-* [@xylar](https://github.com/xylar/)
+* [@timcera](https://github.com/timcera/)
 
