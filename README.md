@@ -1,9 +1,9 @@
 About g2clib
 ============
 
-Home: http://www.nco.ncep.noaa.gov/pmb/codes/GRIB2/
+Home: https://github.com/NOAA-EMC/NCEPLIBS-g2c
 
-Package license: Public Domain
+Package license: [LGPL-3.0](https://github.com/NOAA-EMC/NCEPLIBS-g2c/blob/develop/LICENSE.md)
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/g2clib-feedstock/blob/main/LICENSE.txt)
 
