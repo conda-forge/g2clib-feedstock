@@ -13,9 +13,7 @@ channel_sources:
 channel_targets:
 - conda-forge main
 docker_image:
-- quay.io/condaforge/linux-anvil-aarch64
-jasper:
-- '2'
+- quay.io/condaforge/linux-anvil-cos7-x86_64
 libpng:
 - '1.6'
 target_platform:

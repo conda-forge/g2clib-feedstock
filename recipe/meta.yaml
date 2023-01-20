@@ -7,35 +7,31 @@ package:
 
 source:
   url: https://github.com/NOAA-EMC/NCEPLIBS-g2c/archive/refs/tags/v{{ version }}.tar.gz
+  sha256: 73afba9da382fed73ed8692d77fa037bb313280879cd4012a5e5697dccf55175
 
 build:
-  script: 
-    - mkdir build
-    - cd build
-    - cmake -DCMAKE_INSTALL_PREFIX=${PREFIX} ..
-    - make
-    - make test
-    - make install
   number: 0
 
 requirements:
   build:
     - {{ compiler('c') }}
-    - make
     - cmake
+    - pkg-config >=0.21  # [not win]
+    - make  # [not win]
+    - ninja  # [win]
   host:
     - libpng
     - zlib
-    - jasper
+    - jasper >=2.0.25
   run:
     - libpng
     - zlib
-    - jasper
+    - jasper >=2.0.25
 
 about:
   home: https://github.com/NOAA-EMC/NCEPLIBS-g2c
   summary: This library contains C decoder/encoder routines for GRIB edition 2.
-  license: LGPL-3.0
+  license: LGPL-3.0-only
   license_file: LICENSE.md
 
 extra:
