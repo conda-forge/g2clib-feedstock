@@ -16,7 +16,7 @@ requirements:
   build:
     - {{ compiler('c') }}
     - cmake
-    - pkg-config >=0.21  # [not win]
+    - pkg-config >=0.21
     - make  # [not win]
     - ninja  # [win]
   host:
