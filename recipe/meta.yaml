@@ -28,6 +28,10 @@ requirements:
     - zlib
     - jasper >=2.0.25
 
+test:
+  commands: 
+    - ctest
+
 about:
   home: https://github.com/NOAA-EMC/NCEPLIBS-g2c
   summary: This library contains C decoder/encoder routines for GRIB edition 2.

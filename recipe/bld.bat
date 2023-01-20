@@ -16,6 +16,7 @@ cmake -G "Ninja" ^
       -DCMAKE_BUILD_TYPE=Release ^
       -DCMAKE_PREFIX_PATH:PATH="%LIBRARY_PREFIX%" ^
       -DCMAKE_INSTALL_PREFIX:PATH="%LIBRARY_PREFIX%" ^
+      -DBUILD_SHARED_LIBS=OFF ^
       "%SRC_DIR%"
 
 if errorlevel 1 exit /b 1
