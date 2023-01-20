@@ -1,0 +1,18 @@
+MACOSX_DEPLOYMENT_TARGET:
+- '10.9'
+c_compiler:
+- clang
+c_compiler_version:
+- '14'
+channel_sources:
+- conda-forge
+channel_targets:
+- conda-forge main
+libpng:
+- '1.6'
+macos_machine:
+- x86_64-apple-darwin13.4.0
+target_platform:
+- osx-64
+zlib:
+- '1.2'
