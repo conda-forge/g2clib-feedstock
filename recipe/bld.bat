@@ -1,3 +1,6 @@
+
+setlocal EnableDelayedExpansion
+
 mkdir build
 if errorlevel 1 exit 1
 cd build
@@ -9,7 +12,7 @@ if  %vc% GTR 9 set MSVC_VER=1900
 if  %vc% LEQ 9 set MSVC_TS_VER=90
 if  %vc% GTR 9 set MSVC_TS_VER=140
 
-cmake -G "Ninja" ^
+cmake -G "NMake Makefiles" ^
       "%CMAKE_ARGS%" ^
       -DMSVC_VERSION="%MSVC_VER%" ^
       -DMSVC_TOOLSET_VERSION="%MSVC_TS_VER%" ^
@@ -18,11 +21,10 @@ cmake -G "Ninja" ^
       -DCMAKE_INSTALL_PREFIX:PATH="%LIBRARY_PREFIX%" ^
       -DBUILD_SHARED_LIBS=OFF ^
       "%SRC_DIR%"
-
 if errorlevel 1 exit /b 1
 
-cmake --build . -j %CPU_COUNT% --verbose --config Release
+nmake
 if errorlevel 1 exit /b 1
 
-cmake --build . --config Release --target install
+nmake install
 if errorlevel 1 exit /b 1
