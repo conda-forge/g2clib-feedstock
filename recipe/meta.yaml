@@ -30,7 +30,7 @@ requirements:
 
 test:
   commands: 
-    - ctest
+    - {{ BUILD_PREFIX }}/bin/ctest
 
 about:
   home: https://github.com/NOAA-EMC/NCEPLIBS-g2c

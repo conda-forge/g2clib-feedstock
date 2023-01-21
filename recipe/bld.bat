@@ -24,8 +24,8 @@ cmake -GNinja ^
       "%SRC_DIR%"
 if errorlevel 1 exit 1
 
-nmake
+nmake -f Makefile
 if errorlevel 1 exit 1
 
-nmake install
+nmake install -f Makefile
 if errorlevel 1 exit 1
