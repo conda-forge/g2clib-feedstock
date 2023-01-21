@@ -15,7 +15,7 @@ build:
 requirements:
   build:
     - {{ compiler('c') }}
-    - cmake                 # [build_platform != target_platform]
+    - cmake
     - pkg-config >=0.21
     - make                  # [not win]
     - ninja                 # [win]

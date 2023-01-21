@@ -12,6 +12,6 @@ cmake -G "Unix Makefiles" \
       -DCMAKE_INSTALL_PREFIX="${PREFIX}" \
       "${SRC_DIR}"
 
-cmake --build . -j "${CPU_COUNT}" --config Release
+make
 
-cmake --build . --target install
+make install
