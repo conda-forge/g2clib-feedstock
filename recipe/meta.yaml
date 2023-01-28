@@ -10,6 +10,7 @@ source:
   sha256: 73afba9da382fed73ed8692d77fa037bb313280879cd4012a5e5697dccf55175
 
 build:
+  skip: true  # [win]
   number: 0
 
 requirements:
@@ -27,6 +28,11 @@ requirements:
     - libpng
     - zlib
     - jasper >=2.0.25
+
+test:
+  commands:
+    - test -f ${PREFIX}/lib/libgrib2c${SHLIB_EXT}  # [not win]
+    - test ! -f ${PREFIX}/lib/libgrib2c.a  # [not win]
 
 about:
   home: https://github.com/NOAA-EMC/NCEPLIBS-g2c
