@@ -31,8 +31,8 @@ requirements:
 
 test:
   commands:
-    - test -f ${PREFIX}/lib/libgrib2c${SHLIB_EXT}  # [not win]
-    - test ! -f ${PREFIX}/lib/libgrib2c.a  # [not win]
+    - test -f ${PREFIX}/lib/libg2c${SHLIB_EXT}  # [not win]
+    - test ! -f ${PREFIX}/lib/libg2c.a  # [not win]
 
 about:
   home: https://github.com/NOAA-EMC/NCEPLIBS-g2c
