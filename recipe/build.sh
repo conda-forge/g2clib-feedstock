@@ -16,4 +16,8 @@ make
 
 make install
 
-ctest --output-on-failure
+SKIP=""
+
+if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" || "${CROSSCOMPILING_EMULATOR}" != "" ]]; then
+  ctest -VV --output-on-failure -j${CPU_COUNT} ${SKIP}
+fi
