@@ -16,4 +16,4 @@ make
 
 make install
 
-ctest
+ctest --output-on-failure
