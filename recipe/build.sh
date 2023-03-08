@@ -1,19 +1,25 @@
-#!/bin/sh
+#!/bin/bash
 
+set -ex # Abort on error.
 
-if [[ ${ARCH:-32} == "64" ]]; then
-    DEFS='-DUSE_PNG -DUSE_JPEG2000 -D__64BIT__';
-else
-    DEFS='-DUSE_PNG -DUSE_JPEG2000';
+mkdir build
+cd build
+
+cmake -G "${CMAKE_GENERATOR}" \
+      "${CMAKE_ARGS}" \
+      -DCMAKE_BUILD_TYPE=Release \
+      -DCMAKE_PREFIX_PATH="${PREFIX}" \
+      -DCMAKE_INSTALL_PREFIX="${PREFIX}" \
+      -DCMAKE_FIND_FRAMEWORK=NEVER \
+      -DCMAKE_FIND_APPBUNDLE=NEVER \
+      "${SRC_DIR}"
+
+make
+
+make install
+
+SKIP=""
+
+if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" || "${CROSSCOMPILING_EMULATOR}" != "" ]]; then
+  ctest -VV --output-on-failure -j"${CPU_COUNT}" "${SKIP}"
 fi
-
-export INC="-I${PREFIX}/include"
-export CFLAGS="$CFLAGS $DEFS -fPIC -I${PREFIX}/include"
-# The original name is "libg2c_v1.6.0.a" but the changes in this version are
-# mostly bugfixes that do not deserve a versioned lib name.
-# In addition lib name change break other packages.
-export LIB="libgrib2c.a"
-
-make -e
-cp *.h ${PREFIX}/include
-cp ${LIB} ${PREFIX}/lib

@@ -1,41 +1,48 @@
-{% set version = "1.6.3" %}
+{% set name = "g2clib" %}
+{% set version = "1.7.0" %}
 
 package:
-  name: g2clib
+  name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: http://www.nco.ncep.noaa.gov/pmb/codes/GRIB2/g2clib-{{ version }}.tar
-  sha256: 83e4f2061b3d4a8bd431ba860dda8c5cf103b25f42d265b7b724b9acafad177c
+  url: https://github.com/NOAA-EMC/NCEPLIBS-g2c/archive/refs/tags/v{{ version }}.tar.gz
+  sha256: 73afba9da382fed73ed8692d77fa037bb313280879cd4012a5e5697dccf55175
 
 build:
-  number: 1
-  skip: True  # [win]
+  skip: true  # [win]
+  number: 0
 
 requirements:
   build:
     - {{ compiler('c') }}
-    - make
+    - cmake
+    - pkg-config >=0.21
+    - make                  # [not win]
+    - ninja                 # [win]
   host:
     - libpng
     - zlib
-    - jasper
+    - jasper >=2.0.25
   run:
     - libpng
     - zlib
-    - jasper
+    - jasper >=2.0.25
 
 test:
   commands:
-    - test -f ${PREFIX}/lib/libgrib2c.a  # [unix]
+    - test -f ${PREFIX}/lib/libg2c${SHLIB_EXT}  # [not win]
+    - test ! -f ${PREFIX}/lib/libg2c.a  # [not win]
 
 about:
-  home: http://www.nco.ncep.noaa.gov/pmb/codes/GRIB2/
-  license: Public Domain
-  summary: 'C decoder/encoder routines for GRIB edition 2.'
+  home: https://github.com/NOAA-EMC/NCEPLIBS-g2c
+  summary: This library contains C decoder/encoder routines for GRIB edition 2.
+  license: LGPL-3.0-only
+  license_file: LICENSE.md
 
 extra:
   recipe-maintainers:
     - ocefpaf
     - jhamman
     - xylar
+    - timcera

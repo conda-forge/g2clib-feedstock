@@ -1,26 +1,19 @@
 About g2clib
 ============
 
-Home: http://www.nco.ncep.noaa.gov/pmb/codes/GRIB2/
+Home: https://github.com/NOAA-EMC/NCEPLIBS-g2c
 
-Package license: Public Domain
+Package license: LGPL-3.0-only
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/g2clib-feedstock/blob/main/LICENSE.txt)
 
-Summary: C decoder/encoder routines for GRIB edition 2.
+Summary: This library contains C decoder/encoder routines for GRIB edition 2.
 
 Current build status
 ====================
 
 
-<table><tr>
-    <td>Travis</td>
-    <td>
-      <a href="https://app.travis-ci.com/conda-forge/g2clib-feedstock">
-        <img alt="linux" src="https://img.shields.io/travis/com/conda-forge/g2clib-feedstock/main.svg?label=Linux">
-      </a>
-    </td>
-  </tr>
+<table>
     
   <tr>
     <td>Azure</td>
@@ -199,5 +192,6 @@ Feedstock Maintainers
 
 * [@jhamman](https://github.com/jhamman/)
 * [@ocefpaf](https://github.com/ocefpaf/)
+* [@timcera](https://github.com/timcera/)
 * [@xylar](https://github.com/xylar/)
 
