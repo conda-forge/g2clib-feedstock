@@ -1,11 +1,11 @@
-About g2clib
-============
+About g2clib-feedstock
+======================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/g2clib-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/NOAA-EMC/NCEPLIBS-g2c
 
 Package license: LGPL-3.0-only
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/g2clib-feedstock/blob/main/LICENSE.txt)
 
 Summary: This library contains C decoder/encoder routines for GRIB edition 2.
 
