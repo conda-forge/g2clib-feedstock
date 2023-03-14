@@ -195,6 +195,3 @@ Feedstock Maintainers
 * [@timcera](https://github.com/timcera/)
 * [@xylar](https://github.com/xylar/)
 
-
-<!-- dummy commit to enable rerendering -->
-
