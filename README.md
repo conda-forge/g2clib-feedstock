@@ -190,6 +190,7 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
+* [@EricEngle-NOAA](https://github.com/EricEngle-NOAA/)
 * [@jhamman](https://github.com/jhamman/)
 * [@ocefpaf](https://github.com/ocefpaf/)
 * [@timcera](https://github.com/timcera/)
