@@ -1,8 +1,8 @@
-{% set name = "g2clib" %}
+{% set name = "nceplibs-g2c" %}
 {% set version = "1.7.0" %}
 
 package:
-  name: {{ name|lower }}
+  name: {{ name|lower }}-split
   version: {{ version }}
 
 source:
@@ -11,24 +11,37 @@ source:
 
 build:
   skip: true  # [win]
-  number: 3
+  number: 4
 
-requirements:
-  build:
-    - {{ compiler('c') }}
-    - cmake
-    - pkg-config >=0.21
-    - make                  # [not win]
-    - ninja                 # [win]
-  host:
-    - libpng
-    - zlib
-    - jasper
+outputs:
+  - name: {{ name }}
+    script: install_nceplibs_g2c.sh
+    requirements:
+      build:
+        - {{ compiler('c') }}
+        - cmake
+        - pkg-config >=0.21
+        - make                  # [not win]
+        - ninja                 # [win]
+      host:
+        - libpng
+        - zlib
+        - jasper
 
-test:
-  commands:
-    - test -f ${PREFIX}/lib/libg2c${SHLIB_EXT}  # [not win]
-    - test ! -f ${PREFIX}/lib/libg2c.a  # [not win]
+    test:
+      commands:
+        - test -f ${PREFIX}/lib/libg2c${SHLIB_EXT}  # [not win]
+        - test ! -f ${PREFIX}/lib/libg2c.a  # [not win]
+
+  # old name for the package
+  - name: g2clib
+    requirements:
+      run:
+        - {{ pin_subpackage(name, max_pin='x.x.x.x.x.x') }}
+    test:
+      commands:
+        - test -f ${PREFIX}/lib/libg2c${SHLIB_EXT}  # [not win]
+        - test ! -f ${PREFIX}/lib/libg2c.a  # [not win]
 
 about:
   home: https://github.com/NOAA-EMC/NCEPLIBS-g2c

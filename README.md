@@ -1,5 +1,5 @@
-About g2clib-feedstock
-======================
+About nceplibs-g2c-split-feedstock
+==================================
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/g2clib-feedstock/blob/main/LICENSE.txt)
 
@@ -75,27 +75,28 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-g2clib-green.svg)](https://anaconda.org/conda-forge/g2clib) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/g2clib.svg)](https://anaconda.org/conda-forge/g2clib) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/g2clib.svg)](https://anaconda.org/conda-forge/g2clib) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/g2clib.svg)](https://anaconda.org/conda-forge/g2clib) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-nceplibs--g2c-green.svg)](https://anaconda.org/conda-forge/nceplibs-g2c) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/nceplibs-g2c.svg)](https://anaconda.org/conda-forge/nceplibs-g2c) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/nceplibs-g2c.svg)](https://anaconda.org/conda-forge/nceplibs-g2c) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/nceplibs-g2c.svg)](https://anaconda.org/conda-forge/nceplibs-g2c) |
 
-Installing g2clib
-=================
+Installing nceplibs-g2c-split
+=============================
 
-Installing `g2clib` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
+Installing `nceplibs-g2c-split` from the `conda-forge` channel can be achieved by adding `conda-forge` to your channels with:
 
 ```
 conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `g2clib` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `g2clib, nceplibs-g2c` can be installed with `conda`:
 
 ```
-conda install g2clib
+conda install g2clib nceplibs-g2c
 ```
 
 or with `mamba`:
 
 ```
-mamba install g2clib
+mamba install g2clib nceplibs-g2c
 ```
 
 It is possible to list all of the versions of `g2clib` available on your platform with `conda`:
@@ -165,17 +166,17 @@ Terminology
                   produce the finished article (built conda distributions)
 
 
-Updating g2clib-feedstock
-=========================
+Updating nceplibs-g2c-split-feedstock
+=====================================
 
-If you would like to improve the g2clib recipe or build a new
+If you would like to improve the nceplibs-g2c-split recipe or build a new
 package version, please fork this repository and submit a PR. Upon submission,
 your changes will be run on the appropriate platforms to give the reviewer an
 opportunity to confirm that the changes result in a successful build. Once
 merged, the recipe will be re-built and uploaded automatically to the
 `conda-forge` channel, whereupon the built conda packages will be available for
 everybody to install and use from the `conda-forge` channel.
-Note that all branches in the conda-forge/g2clib-feedstock are
+Note that all branches in the conda-forge/nceplibs-g2c-split-feedstock are
 immediately built and any created packages are uploaded, so PRs should be based
 on branches in forks and branches in the main repository should only be used to
 build distinct package versions.
