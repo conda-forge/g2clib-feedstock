@@ -87,41 +87,41 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `g2clib, nceplibs-g2c` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `nceplibs-g2c` can be installed with `conda`:
 
 ```
-conda install g2clib nceplibs-g2c
-```
-
-or with `mamba`:
-
-```
-mamba install g2clib nceplibs-g2c
-```
-
-It is possible to list all of the versions of `g2clib` available on your platform with `conda`:
-
-```
-conda search g2clib --channel conda-forge
+conda install nceplibs-g2c
 ```
 
 or with `mamba`:
 
 ```
-mamba search g2clib --channel conda-forge
+mamba install nceplibs-g2c
+```
+
+It is possible to list all of the versions of `nceplibs-g2c` available on your platform with `conda`:
+
+```
+conda search nceplibs-g2c --channel conda-forge
+```
+
+or with `mamba`:
+
+```
+mamba search nceplibs-g2c --channel conda-forge
 ```
 
 Alternatively, `mamba repoquery` may provide more information:
 
 ```
 # Search all versions available on your platform:
-mamba repoquery search g2clib --channel conda-forge
+mamba repoquery search nceplibs-g2c --channel conda-forge
 
-# List packages depending on `g2clib`:
-mamba repoquery whoneeds g2clib --channel conda-forge
+# List packages depending on `nceplibs-g2c`:
+mamba repoquery whoneeds nceplibs-g2c --channel conda-forge
 
-# List dependencies of `g2clib`:
-mamba repoquery depends g2clib --channel conda-forge
+# List dependencies of `nceplibs-g2c`:
+mamba repoquery depends nceplibs-g2c --channel conda-forge
 ```
 
 
