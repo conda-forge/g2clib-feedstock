@@ -12,6 +12,11 @@ cmake -G "${CMAKE_GENERATOR}" \
       -DCMAKE_INSTALL_PREFIX="${PREFIX}" \
       -DCMAKE_FIND_FRAMEWORK=NEVER \
       -DCMAKE_FIND_APPBUNDLE=NEVER \
+      -DUSE_Jasper=OFF \
+      -DUSE_OpenJPEG=ON \
+      -DUSE_PNG=ON \
+      -DUSE_AEC=ON \
+      -DBUILD_STATIC_LIBS=OFF \
       "${SRC_DIR}"
 
 make

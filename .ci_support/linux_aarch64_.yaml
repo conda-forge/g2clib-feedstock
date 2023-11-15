@@ -14,10 +14,10 @@ channel_targets:
 - conda-forge main
 docker_image:
 - quay.io/condaforge/linux-anvil-cos7-x86_64
-jasper:
-- '4'
 libpng:
 - '1.6'
+openjpeg:
+- '2'
 target_platform:
 - linux-aarch64
 zlib:
