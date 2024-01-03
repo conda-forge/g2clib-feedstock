@@ -2,6 +2,9 @@
 
 set -ex # Abort on error.
 
+echo "Building using ${PREFIX}"
+echo "From ${PWD}"
+
 mkdir build
 cd build
 
