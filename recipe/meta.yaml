@@ -8,6 +8,8 @@ package:
 source:
   url: https://github.com/NOAA-EMC/NCEPLIBS-g2c/archive/refs/tags/v{{ version }}.tar.gz
   sha256: 4ce9f5a7cb0950699fe08ebc5a463ab4d09ef550c050391a319308a2494f971f
+  patches:
+    - 0001-Remove-unused-unistd.h-from-grib2.h.in.patch
 
 build:
   number: 5
@@ -42,7 +44,7 @@ outputs:
   - name: g2clib
     requirements:
       run:
-        - {{ pin_subpackage(name, exact=True) }}
+        - {{ pin_subpackage(name, max_pin='x.x.x.x.x.x') }}
     test:
       commands: *test_commands
 

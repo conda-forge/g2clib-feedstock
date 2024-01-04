@@ -1,0 +1,25 @@
+From c283dd5cab7fe36e0e9fba1cfb59ca043e365617 Mon Sep 17 00:00:00 2001
+From: TimothyCera-NOAA <154259143+TimothyCera-NOAA@users.noreply.github.com>
+Date: Thu, 4 Jan 2024 14:09:40 -0500
+Subject: [PATCH] Remove unused unistd.h from grib2.h.in
+
+The unistd.h header is not needed for the library, and is preventing the compilation of the library on Windows.
+---
+ src/grib2.h.in | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/src/grib2.h.in b/src/grib2.h.in
+index 42bb2de..fd24b60 100644
+--- a/src/grib2.h.in
++++ b/src/grib2.h.in
+@@ -21,7 +21,6 @@
+ #include <stdint.h>
+ #include <string.h>
+ #include <sys/types.h>
+-#include <unistd.h>
+ 
+ #define G2C_VERSION "@pVersion@" /**< Current version of NCEPLIBS-g2c library. */
+ 
+-- 
+2.34.1
+
