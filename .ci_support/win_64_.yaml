@@ -4,6 +4,8 @@ channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
+libaec:
+- '1'
 libpng:
 - '1.6'
 openjpeg:
