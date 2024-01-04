@@ -14,8 +14,8 @@ build:
 
 outputs:
   - name: {{ name }}
-    script: build_linux.sh  # [not win]
-    script: build_win.bat  # [win]
+    script: build_linux.sh      # [not win]
+    script: build_win.bat       # [win]
     requirements:
       build:
         - {{ compiler('c') }}
@@ -27,7 +27,8 @@ outputs:
         - libpng
         - zlib
         - libaec >=1.0.6
-        - openjpeg
+        - openjpeg              # [not win]
+        - jasper                # [win]
 
     test:
       commands: &test_commands

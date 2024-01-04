@@ -10,8 +10,8 @@ cmake -G"Ninja" ^
       -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX% ^
       -DCMAKE_FIND_FRAMEWORK=NEVER ^
       -DCMAKE_FIND_APPBUNDLE=NEVER ^
-      -DUSE_Jasper=OFF ^
-      -DUSE_OpenJPEG=ON ^
+      -DUSE_Jasper=ON ^
+      -DUSE_OpenJPEG=OFF ^
       -DUSE_PNG=ON ^
       -DUSE_AEC=ON ^
       -DBUILD_STATIC_LIBS=OFF ^

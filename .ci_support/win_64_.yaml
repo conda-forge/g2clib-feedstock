@@ -4,10 +4,10 @@ channel_sources:
 - conda-forge
 channel_targets:
 - conda-forge main
+jasper:
+- '4'
 libpng:
 - '1.6'
-openjpeg:
-- '2'
 target_platform:
 - win-64
 zlib:
