@@ -6,6 +6,8 @@ channel_targets:
 - conda-forge main
 jasper:
 - '4'
+libaec:
+- '1'
 libpng:
 - '1.6'
 target_platform:

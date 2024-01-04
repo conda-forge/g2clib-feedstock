@@ -26,6 +26,8 @@ outputs:
       host:
         - libpng
         - zlib
+        # list libaec twice to conda-smithy doesn't get confused
+        - libaec
         - libaec >=1.0.6
         - openjpeg              # [not win]
         - jasper                # [win]
