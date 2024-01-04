@@ -10,6 +10,7 @@ source:
   sha256: 4ce9f5a7cb0950699fe08ebc5a463ab4d09ef550c050391a319308a2494f971f
   patches:
     - 0001-Remove-unused-unistd.h-from-grib2.h.in.patch
+    - 0001-Windows-does-not-have-a-separate-math-library.patch
 
 build:
   number: 5
