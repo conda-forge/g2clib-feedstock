@@ -39,7 +39,7 @@ outputs:
       commands: &test_commands
         - test -f ${PREFIX}/lib/libg2c${SHLIB_EXT}  # [not win]
         - test ! -f ${PREFIX}/lib/libg2c.a  # [not win]
-        - if not exist %LIBRARY_BIN%\\libg2c.dll exit 1  # [win]
+        - if not exist %LIBRARY_BIN%\\g2c.dll exit 1  # [win]
 
   # old name for the package
   - name: g2clib
