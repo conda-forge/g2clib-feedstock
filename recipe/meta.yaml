@@ -8,31 +8,38 @@ package:
 source:
   url: https://github.com/NOAA-EMC/NCEPLIBS-g2c/archive/refs/tags/v{{ version }}.tar.gz
   sha256: 4ce9f5a7cb0950699fe08ebc5a463ab4d09ef550c050391a319308a2494f971f
+  patches:
+    - 0001-Remove-unused-unistd.h-from-grib2.h.in.patch
+    - 0001-Windows-does-not-have-a-separate-math-library.patch
 
 build:
-  skip: true  # [win]
-  number: 4
+  number: 5
 
 outputs:
   - name: {{ name }}
-    script: install_nceplibs_g2c.sh
+    script: build_linux.sh      # [not win]
+    script: build_win.bat       # [win]
     requirements:
       build:
         - {{ compiler('c') }}
-        - cmake
+        - cmake >=3.15
         - pkg-config >=0.21
         - make                  # [not win]
         - ninja                 # [win]
       host:
         - libpng
         - zlib
+        # list libaec twice to conda-smithy doesn't get confused
+        - libaec
         - libaec >=1.0.6
-        - openjpeg
+        - openjpeg              # [not win]
+        - jasper                # [win]
 
     test:
-      commands:
+      commands: &test_commands
         - test -f ${PREFIX}/lib/libg2c${SHLIB_EXT}  # [not win]
         - test ! -f ${PREFIX}/lib/libg2c.a  # [not win]
+        - if not exist %LIBRARY_BIN%\\g2c.dll exit 1  # [win]
 
   # old name for the package
   - name: g2clib
@@ -40,9 +47,7 @@ outputs:
       run:
         - {{ pin_subpackage(name, max_pin='x.x.x.x.x.x') }}
     test:
-      commands:
-        - test -f ${PREFIX}/lib/libg2c${SHLIB_EXT}  # [not win]
-        - test ! -f ${PREFIX}/lib/libg2c.a  # [not win]
+      commands: *test_commands
 
 about:
   home: https://github.com/NOAA-EMC/NCEPLIBS-g2c

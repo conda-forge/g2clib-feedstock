@@ -61,6 +61,13 @@ Current build status
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/g2clib-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_arm64_" alt="variant">
                 </a>
               </td>
+            </tr><tr>
+              <td>win_64</td>
+              <td>
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=3901&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/g2clib-feedstock?branchName=main&jobName=win&configuration=win%20win_64_" alt="variant">
+                </a>
+              </td>
             </tr>
           </tbody>
         </table>
@@ -87,41 +94,41 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `nceplibs-g2c` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `g2clib, nceplibs-g2c` can be installed with `conda`:
 
 ```
-conda install nceplibs-g2c
-```
-
-or with `mamba`:
-
-```
-mamba install nceplibs-g2c
-```
-
-It is possible to list all of the versions of `nceplibs-g2c` available on your platform with `conda`:
-
-```
-conda search nceplibs-g2c --channel conda-forge
+conda install g2clib nceplibs-g2c
 ```
 
 or with `mamba`:
 
 ```
-mamba search nceplibs-g2c --channel conda-forge
+mamba install g2clib nceplibs-g2c
+```
+
+It is possible to list all of the versions of `g2clib` available on your platform with `conda`:
+
+```
+conda search g2clib --channel conda-forge
+```
+
+or with `mamba`:
+
+```
+mamba search g2clib --channel conda-forge
 ```
 
 Alternatively, `mamba repoquery` may provide more information:
 
 ```
 # Search all versions available on your platform:
-mamba repoquery search nceplibs-g2c --channel conda-forge
+mamba repoquery search g2clib --channel conda-forge
 
-# List packages depending on `nceplibs-g2c`:
-mamba repoquery whoneeds nceplibs-g2c --channel conda-forge
+# List packages depending on `g2clib`:
+mamba repoquery whoneeds g2clib --channel conda-forge
 
-# List dependencies of `nceplibs-g2c`:
-mamba repoquery depends nceplibs-g2c --channel conda-forge
+# List dependencies of `g2clib`:
+mamba repoquery depends g2clib --channel conda-forge
 ```
 
 
@@ -143,7 +150,7 @@ available continuous integration services. Thanks to the awesome service provide
 [CircleCI](https://circleci.com/), [AppVeyor](https://www.appveyor.com/),
 [Drone](https://cloud.drone.io/welcome), and [TravisCI](https://travis-ci.com/)
 it is possible to build and upload installable packages to the
-[conda-forge](https://anaconda.org/conda-forge) [Anaconda-Cloud](https://anaconda.org/)
+[conda-forge](https://anaconda.org/conda-forge) [anaconda.org](https://anaconda.org/)
 channel for Linux, Windows and OSX respectively.
 
 To manage the continuous integration and simplify feedstock maintenance
