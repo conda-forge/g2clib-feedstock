@@ -13,7 +13,7 @@ source:
     - 0001-Windows-does-not-have-a-separate-math-library.patch
 
 build:
-  number: 5
+  number: 6
 
 outputs:
   - name: {{ name }}
@@ -60,5 +60,5 @@ extra:
     - ocefpaf
     - jhamman
     - xylar
-    - timcera
+    - TimothyCera-NOAA
     - EricEngle-NOAA

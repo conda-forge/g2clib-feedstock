@@ -199,8 +199,8 @@ Feedstock Maintainers
 =====================
 
 * [@EricEngle-NOAA](https://github.com/EricEngle-NOAA/)
+* [@TimothyCera-NOAA](https://github.com/TimothyCera-NOAA/)
 * [@jhamman](https://github.com/jhamman/)
 * [@ocefpaf](https://github.com/ocefpaf/)
-* [@timcera](https://github.com/timcera/)
 * [@xylar](https://github.com/xylar/)
 
