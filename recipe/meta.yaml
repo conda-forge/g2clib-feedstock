@@ -1,5 +1,5 @@
 {% set name = "nceplibs-g2c" %}
-{% set version = "1.8.0" %}
+{% set version = "1.9.0" %}
 
 package:
   name: {{ name|lower }}-split
@@ -7,13 +7,10 @@ package:
 
 source:
   url: https://github.com/NOAA-EMC/NCEPLIBS-g2c/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 4ce9f5a7cb0950699fe08ebc5a463ab4d09ef550c050391a319308a2494f971f
-  patches:
-    - 0001-Remove-unused-unistd.h-from-grib2.h.in.patch
-    - 0001-Windows-does-not-have-a-separate-math-library.patch
+  sha256: 5554276e18bdcddf387a08c2dd23f9da310c6598905df6a2a244516c22ded9aa
 
 build:
-  number: 6
+  number: 0
 
 outputs:
   - name: {{ name }}
