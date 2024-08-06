@@ -10,7 +10,7 @@ source:
   sha256: 5554276e18bdcddf387a08c2dd23f9da310c6598905df6a2a244516c22ded9aa
 
 build:
-  number: 0
+  number: 1
 
 outputs:
   - name: {{ name }}
@@ -19,6 +19,7 @@ outputs:
     requirements:
       build:
         - {{ compiler('c') }}
+        - {{ stdlib('c') }}     # [not win]
         - cmake >=3.15
         - pkg-config >=0.21
         - make                  # [not win]
