@@ -10,7 +10,7 @@ source:
   sha256: 39c23bf1219c60101548c8525e3a879c84119558f768081779d404a8caf4cec9
   patches:
     - 0001-Trying-this-simple-change.patch
-    - 0001-Update-g2c_csv_strsep-in-g2ccsv.c.patch
+    - g2ccsv-max-line-size.patch
 
 build:
   number: 2
