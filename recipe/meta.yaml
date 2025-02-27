@@ -14,7 +14,7 @@ source:
     - g2cindex-basename-def-win.patch
 
 build:
-  number: 5
+  number: 6
 
 outputs:
   - name: {{ name }}
