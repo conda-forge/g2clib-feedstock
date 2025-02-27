@@ -1,0 +1,25 @@
+From f51770cd64d45e14afb6cad5fd6ddf8ffb61a503 Mon Sep 17 00:00:00 2001
+From: Eric Engle <EricEngle-NOAA@users.noreply.github.com>
+Date: Tue, 21 Jan 2025 14:13:29 -0500
+Subject: [PATCH] Trying this simple change...
+
+---
+ src/g2cio.c | 2 +-
+ 1 file changed, 1 insertions(+), 1 deletions(-)
+
+diff --git a/src/g2cio.c b/src/g2cio.c
+index b1dcf17..50801eb 100644
+--- a/src/g2cio.c
++++ b/src/g2cio.c
+@@ -41,7 +41,7 @@ int
+ g2c_file_io(FILE *f, int write, int g2ctype, void *var)
+ {
+     void *void_be;
+-    char *bvar = NULL;
++    signed char *bvar = NULL;
+     short *svar = NULL;
+     int *ivar = NULL;
+     long long int *i64var = NULL;
+-- 
+2.39.5 (Apple Git-154)
+

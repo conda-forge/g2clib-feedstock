@@ -8,9 +8,11 @@ package:
 source:
   url: https://github.com/NOAA-EMC/NCEPLIBS-g2c/archive/refs/tags/v{{ version }}.tar.gz
   sha256: 39c23bf1219c60101548c8525e3a879c84119558f768081779d404a8caf4cec9
+  patches:
+    - 0001-Trying-this-simple-change.patch
 
 build:
-  number: 0
+  number: 1
 
 outputs:
   - name: {{ name }}
