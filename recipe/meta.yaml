@@ -12,8 +12,8 @@ source:
     - 0001-Trying-this-simple-change.patch
 
 build:
-  skip: true # [win]
-  number: 8
+  skip: true  # [win]
+  number: 10
 
 outputs:
   - name: {{ name }}
