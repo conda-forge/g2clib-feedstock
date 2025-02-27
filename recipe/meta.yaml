@@ -13,7 +13,7 @@ source:
     - g2ccsv-max-line-size.patch
 
 build:
-  number: 2
+  number: 3
 
 outputs:
   - name: {{ name }}
