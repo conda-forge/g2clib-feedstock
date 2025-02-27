@@ -11,9 +11,10 @@ source:
   patches:
     - 0001-Trying-this-simple-change.patch
     - g2ccsv-max-line-size.patch
+    - g2cindex-basename-def-win.patch
 
 build:
-  number: 4
+  number: 5
 
 outputs:
   - name: {{ name }}

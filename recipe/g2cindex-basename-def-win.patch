@@ -1,0 +1,33 @@
+--- a/src/g2cindex.c	2024-10-30 13:06:17
++++ b/src/g2cindex.c	2025-02-27 12:38:10
+@@ -6,9 +6,29 @@
+  * @author Ed Hartnett @date 10/12/22
+  */
+ #include "grib2_int.h"
+-#include <libgen.h>
+ #include <stdarg.h>
+ #include <time.h>
++
++#ifdef _WIN32
++#include <stdio.h>
++#include <string.h>
++#define PATH_SEPARATOR '\\'
++#else
++#define PATH_SEPARATOR '/'
++#else
++#include <libgen.h>
++#endif
++
++#ifdef _WIN32
++char *basename(char *path)
++{
++    if (!path || !*path)
++        return ".";
++
++    char *last_sep = strrchr(path, PATH_SEPARATOR);
++    return last_sep ? last_sep + 1 : path;
++}
++#endif
+ 
+ /** Global file information. */
+ extern G2C_FILE_INFO_T g2c_file[G2C_MAX_FILES + 1];
