@@ -1,5 +1,5 @@
---- a/g2ccsv.c	2024-10-30 13:06:17
-+++ b/g2ccsv.c	2025-02-27 10:45:23
+--- a/src/g2ccsv.c	2024-10-30 13:06:17
++++ b/src/g2ccsv.c	2025-02-27 10:45:23
 @@ -9,6 +9,8 @@
  #include <stdlib.h>
  #include <string.h>
