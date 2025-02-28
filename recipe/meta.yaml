@@ -1,5 +1,5 @@
 {% set name = "nceplibs-g2c" %}
-{% set version = "2.0.0" %}
+{% set version = "2.1.0" %}
 
 package:
   name: {{ name|lower }}-split
@@ -7,13 +7,13 @@ package:
 
 source:
   url: https://github.com/NOAA-EMC/NCEPLIBS-g2c/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 39c23bf1219c60101548c8525e3a879c84119558f768081779d404a8caf4cec9
+  sha256: 74e3ef381f0339dc181bc3afaa54c98f76257508375ff664d243d76825006605
   patches:
     - 0001-Trying-this-simple-change.patch
 
 build:
   skip: true  # [win]
-  number: 10
+  number: 0
 
 outputs:
   - name: {{ name }}
