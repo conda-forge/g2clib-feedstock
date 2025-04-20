@@ -13,10 +13,13 @@ source:
 
 build:
   skip: true  # [win]
-  number: 0
+  number: 1
 
 outputs:
   - name: {{ name }}
+    build:
+      run_exports:
+        - {{ pin_subpackage('nceplibs-g2c', max_pin='x.x.x') }}
     script: build_linux.sh      # [not win]
     script: build_win.bat       # [win]
     requirements:
