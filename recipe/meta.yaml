@@ -1,5 +1,5 @@
 {% set name = "nceplibs-g2c" %}
-{% set version = "2.1.0" %}
+{% set version = "2.2.0" %}
 
 package:
   name: {{ name|lower }}-split
@@ -7,18 +7,21 @@ package:
 
 source:
   url: https://github.com/NOAA-EMC/NCEPLIBS-g2c/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 74e3ef381f0339dc181bc3afaa54c98f76257508375ff664d243d76825006605
-  patches:
-    - 0001-Trying-this-simple-change.patch
+  sha256: cf0ac8f75aed662ccc64f4c44fbe46a70307bc27cbe95417fdfb6caf75245457
+#  patches:
+#    - 0001-Trying-this-simple-change.patch
 
 build:
   skip: true  # [win]
-  number: 0
+  number: 1
 
 outputs:
   - name: {{ name }}
-    script: build_linux.sh      # [not win]
-    script: build_win.bat       # [win]
+    build:
+      run_exports:
+        - {{ pin_subpackage('nceplibs-g2c', max_pin='x.x.x') }}
+    script: build_linux.sh  # [not win]
+    script: build_win.bat  # [win]
     requirements:
       build:
         - {{ compiler('c') }}
@@ -37,7 +40,7 @@ outputs:
         - jasper                # [win]
 
     test:
-      commands: &test_commands
+      commands:
         - test -f ${PREFIX}/lib/libg2c${SHLIB_EXT}  # [not win]
         - test ! -f ${PREFIX}/lib/libg2c.a  # [not win]
         - if not exist %LIBRARY_BIN%\\g2c.dll exit 1  # [win]
@@ -48,7 +51,12 @@ outputs:
       run:
         - {{ pin_subpackage(name, max_pin='x.x.x.x.x.x') }}
     test:
-      commands: *test_commands
+      commands:
+        - test -f ${PREFIX}/lib/libg2c${SHLIB_EXT}  # [not win]
+        - test ! -f ${PREFIX}/lib/libg2c.a  # [not win]
+        - if not exist %LIBRARY_BIN%\\g2c.dll exit 1  # [win]
+
+  # old name for the package
 
 about:
   home: https://github.com/NOAA-EMC/NCEPLIBS-g2c
