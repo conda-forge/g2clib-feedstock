@@ -8,42 +8,43 @@ package:
 source:
   url: https://github.com/NOAA-EMC/NCEPLIBS-g2c/archive/refs/tags/v{{ version }}.tar.gz
   sha256: 8520a24c066500cfd0d07a05c6b7b0cb92383d1a4737cf6e79d9f4919c8e79ab
-#  patches:
+  patches:
+     - 0002-msvc-no-vla-g2ccsv.patch  # [win]
+     - 0003-win-no-libgen-g2cindex.patch  # [win]
 #    - 0001-Trying-this-simple-change.patch
 
 build:
-  skip: true  # [win]
-  number: 0
+  number: 1
 
 outputs:
   - name: {{ name }}
     build:
       run_exports:
         - {{ pin_subpackage('nceplibs-g2c', max_pin='x.x.x') }}
-    script: build_linux.sh  # [not win]
-    script: build_win.bat  # [win]
+    script: {{ "build_win.bat" if win else "build_linux.sh" }}
     requirements:
       build:
         - {{ compiler('c') }}
         - {{ stdlib('c') }}     # [not win]
         - cmake >=3.15
-        - pkg-config >=0.21
         - make                  # [not win]
         - ninja                 # [win]
+        - pkg-config >=0.21     # [not win]
+        - pkgconf               # [win]
       host:
         - libpng
         - zlib
-        # list libaec twice to conda-smithy doesn't get confused
+        # list libaec twice so conda-smithy doesn't get confused
         - libaec
         - libaec >=1.0.6
         - openjpeg              # [not win]
         - jasper                # [win]
-
     test:
       commands:
         - test -f ${PREFIX}/lib/libg2c${SHLIB_EXT}  # [not win]
-        - test ! -f ${PREFIX}/lib/libg2c.a  # [not win]
+        - test ! -f ${PREFIX}/lib/libg2c.a          # [not win]
         - if not exist %LIBRARY_BIN%\\g2c.dll exit 1  # [win]
+        - if not exist %LIBRARY_LIB%\\g2c.lib exit 1  # [win]
 
   # old name for the package
   - name: g2clib
@@ -53,10 +54,9 @@ outputs:
     test:
       commands:
         - test -f ${PREFIX}/lib/libg2c${SHLIB_EXT}  # [not win]
-        - test ! -f ${PREFIX}/lib/libg2c.a  # [not win]
+        - test ! -f ${PREFIX}/lib/libg2c.a          # [not win]
         - if not exist %LIBRARY_BIN%\\g2c.dll exit 1  # [win]
-
-  # old name for the package
+        - if not exist %LIBRARY_LIB%\\g2c.lib exit 1  # [win]
 
 about:
   home: https://github.com/NOAA-EMC/NCEPLIBS-g2c

@@ -1,0 +1,13 @@
+diff --git a/src/g2ccsv.c b/src/g2ccsv.c
+index 54f7415..684676c 100644
+--- a/src/g2ccsv.c
++++ b/src/g2ccsv.c
+@@ -214,7 +214,7 @@ g2c_csv_strsep(char **stringp, const char *delim)
+ int
+ g2c_csv_init()
+ {
+-    const int max_line_size = 500;
++    enum { max_line_size = 500 };
+     const int num_columns = 9;
+     int i;
+     char *buf, *tmp, *key;
