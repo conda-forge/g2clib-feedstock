@@ -43,7 +43,12 @@ cmake -S "%SRC_DIR%" -B build -G "Ninja" ^
       -DUSE_OpenJPEG=OFF ^
       -DUSE_PNG=ON ^
       -DUSE_AEC=ON ^
+      -DBUILD_SHARED_LIBS=ON ^
       -DBUILD_STATIC_LIBS=OFF ^
+      -DBUILD_TESTING=ON ^
+      -DFTP_TEST_FILES=OFF ^
+      -DFTP_LARGE_TEST_FILES=OFF ^
+      -DFTP_EXTRA_TEST_FILES=OFF ^
       -DCMAKE_WINDOWS_EXPORT_ALL_SYMBOLS=ON
 if errorlevel 1 exit 1
 
@@ -53,4 +58,8 @@ if errorlevel 1 exit 1
 
 REM Install
 cmake --install build --config Release
+if errorlevel 1 exit 1
+
+REM Run the upstream tests with bundled data, including the Jasper shell test.
+ctest --test-dir build --build-config Release --output-on-failure
 if errorlevel 1 exit 1
