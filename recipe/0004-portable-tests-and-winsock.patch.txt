@@ -1,0 +1,85 @@
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index ed15233..88cc438 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -179,6 +179,12 @@ endif()
+ 
+ if (WIN32)
+   target_link_libraries(${lib_name}_objlib INTERFACE ws2_32)
++  if(BUILD_SHARED_LIBS)
++    target_link_libraries(${lib_name}_shared PRIVATE ws2_32)
++  endif()
++  if(BUILD_STATIC_LIBS)
++    target_link_libraries(${lib_name}_static INTERFACE ws2_32)
++  endif()
+ endif()
+ 
+ # Install g2c library
+diff --git a/tests/tst_degrib2.c b/tests/tst_degrib2.c
+index d5b7512..4306229 100644
+--- a/tests/tst_degrib2.c
++++ b/tests/tst_degrib2.c
+@@ -7,7 +7,6 @@
+  */
+ #include "g2ctest.h"
+ #include "grib2_int.h"
+-#include <libgen.h>
+ 
+ #define FILE_NAME "tst_degrib2.txt"
+ #define WAVE_FILE "data/gdaswave.t00z.wcoast.0p16.f000.grib2"
+diff --git a/tests/tst_degrib2_fast.c b/tests/tst_degrib2_fast.c
+index 8a0cd7f..f234849 100644
+--- a/tests/tst_degrib2_fast.c
++++ b/tests/tst_degrib2_fast.c
+@@ -7,7 +7,6 @@
+  */
+ #include "g2ctest.h"
+ #include "grib2_int.h"
+-#include <libgen.h>
+ 
+ #define FILE_NAME "tst_degrib2.txt"
+ #define WAVE_FILE "data/gdaswave.t00z.wcoast.0p16.f000.grib2"
+diff --git a/tests/tst_degrib2_ftp_all.c b/tests/tst_degrib2_ftp_all.c
+index d550c7c..b17649d 100644
+--- a/tests/tst_degrib2_ftp_all.c
++++ b/tests/tst_degrib2_ftp_all.c
+@@ -7,7 +7,9 @@
+  */
+ #include "g2ctest.h"
+ #include "grib2_int.h"
++#ifdef FTP_TEST_FILES
+ #include <libgen.h>
++#endif
+ 
+ #define NUM_TESTS 2
+ 
+diff --git a/tests/tst_index.c b/tests/tst_index.c
+index 7dcfed4..724c73e 100644
+--- a/tests/tst_index.c
++++ b/tests/tst_index.c
+@@ -7,7 +7,9 @@
+  * Ed Hartnett 10/13/22
+  */
+ #include "grib2_int.h"
++#ifdef FTP_TEST_FILES
+ #include <sys/time.h>
++#endif
+ 
+ #define FILE_NAME "tst_index.txt"
+ #define WAVE_FILE "data/gdaswave.t00z.wcoast.0p16.f000.grib2"
+@@ -18,6 +20,7 @@
+ #define REF_FTP_FILE "data/ref_WW3_Regional_US_West_Coast_20220718_0000.grb2index"
+ #define MILLION 1000000
+ 
++#ifdef FTP_TEST_FILES
+ /** Subtract the `struct timeval' values X and Y, storing the result in
+    RESULT.  Return 1 if the difference is negative, otherwise 0.  This
+    function from the GNU documentation. */
+@@ -47,6 +50,7 @@ struct timeval *result, *x, *y;
+     /* Return 1 if result is negative. */
+     return x->tv_sec < y->tv_sec;
+ }
++#endif
+ 
+ int
+ main()
