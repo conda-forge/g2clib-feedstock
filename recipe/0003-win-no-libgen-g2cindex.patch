@@ -1,0 +1,27 @@
+diff --git a/src/g2cindex.c b/src/g2cindex.c
+index a8df509..089073c 100644
+--- a/src/g2cindex.c
++++ b/src/g2cindex.c
+@@ -6,7 +6,22 @@
+  * @author Ed Hartnett @date 10/12/22
+  */
+ #include "grib2_int.h"
++#ifdef _WIN32
++#include <string.h>
++static const char *g2c_basename_const(const char *path)
++{
++    const char *p;
++    if (!path || !*path)
++        return path;
++    p = strrchr(path, '\\');
++    if (!p)
++        p = strrchr(path, '/');
++    return p ? (p + 1) : path;
++}
++#define basename(p) ((char *)g2c_basename_const((p)))
++#else
+ #include <libgen.h>
++#endif
+ #include <stdarg.h>
+ #include <time.h>
+ 
